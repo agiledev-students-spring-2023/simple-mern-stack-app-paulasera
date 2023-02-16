@@ -18,9 +18,25 @@ mongoose
   .then(data => console.log(`Connected to MongoDB`))
   .catch(err => console.error(`Failed to connect to MongoDB: ${err}`))
 
-// load the dataabase models we want to deal with
+// load the database models we want to deal with
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
+
+// a route to handle the About page
+app.get('/about', (req, res) => {
+  // retrieve information, such as text and URL to images, as JSON data
+  res.json({
+    text: 'I am a senior at NYU majoring in Computer Science and minoring in Physics and Web Application Development.',
+    text2: 'I own three cats named Gigi, Miso, and Isa. My roommate also has a 3-legged bunny named Waffles.',
+    text3: 'I like rollerskating, hiking, and cooking; however, I am usually too tired to do any of these things.',
+    text4: 'I like to fill my home with flowers and antiques. That is where I spend most of my time since rent in NYC is ridiculous.',
+    img_url: 'https://media.licdn.com/dms/image/D4E03AQHCfUcWyp5SSA/profile-displayphoto-shrink_200_200/0/1669106103762?e=1681948800&v=beta&t=eKkhwl-SKtTEj5lY-xLYHqCW9SRG-qggUXmJVUS_SPk',
+    text5: 'My hopes and dreams are to escape the labor force and move off-grid. My compromise is to work in tech and shop at farmers markets.',
+    text6: 'My nightmare blunt rotation is Elon Musk, Mark Zuckerberg, and literally any of the anchors on Fox News.',
+    text7: 'It has been fun learning about full-stack development and I hope to master it so well I can live out my dreams of being the Elle Woods of STEM.',
+    text8: 'Toodles, with love, PS',
+  })
+})
 
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
